@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elvis Kiprono · Administrator & Educator</title>
+  <meta name="description" content="Administrator & Educator at Mountsview Technical College. Passionate about training, leadership, and technology-driven education." />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #2563eb;
+      --accent-2: #22c55e;
+      --border: #e5e7eb;
+      --card: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 16px;
+      --container: 1100px;
+    }
+    html.dark {
+      --bg: #0b1220;
+      --panel: #0f172a;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --card: #111827;
+      --border: #1f2937;
+      --shadow: 0 12px 28px rgba(0,0,0,.35);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+    .button {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .7rem 1rem; border-radius: 999px;
+      background: var(--accent); color: #fff; border: none;
+      box-shadow: var(--shadow); font-weight: 600;
+    }
+    .button:hover { opacity: .9; }
+    .button.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .button.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+    .site-header { position: sticky; top: 0; background: var(--panel); border-bottom: 1px solid var(--border); z-index: 50; }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-weight: 800; display: flex; align-items: center; gap: .6rem; }
+    .nav-links { display: flex; gap: .8rem; }
+    .hero { padding: 72px 0 36px; }
+    .hero-grid { display: grid; gap: 24px; align-items: center; grid-template-columns: 1fr 1fr; }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+    .hero h1 { font-size: clamp(2rem, 2.7vw + 1rem, 3rem); margin: 0 0 10px; }
+    .hero p.lede { color: var(--muted); margin: 0 0 20px; }
+    .profile { aspect-ratio: 1/1; width: 250px; border-radius: 24px; border: 1px solid var(--border); margin-left: auto; background: var(--card); }
+    section { padding: 64px 0; }
+    .section-title { font-size: 1.6rem; margin: 0 0 10px; }
+    .section-subtitle { color: var(--muted); margin: 0 0 25px; }
+    .about { display: grid; gap: 24px; grid-template-columns: 1.3fr .7fr; }
+    @media (max-width: 900px) { .about { grid-template-columns: 1fr; } }
+    .skills-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); }
+    .skill { padding: 14px 16px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); display: flex; justify-content: space-between; }
+    .projects-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); }
+    .project { border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column; }
+    .project .thumb { height: 160px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+    .project .body { padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .contact-card { padding: 20px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); display: grid; gap: 14px; }
+    footer { padding: 48px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">Elvis Kiprono · <span>Administrator & Educator</span></div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button id="themeBtn" class="button secondary" title="Toggle theme">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero container" id="top">
+      <div class="hero-grid">
+        <div>
+          <h1>Hi, I’m <span style="color:var(--accent)"><strong>Elvis Kiprono</strong></span></h1>
+          <p class="lede">Driving education, technology, and discipline at Mountsview Technical College — empowering learners to thrive in classrooms and beyond.</p>
+          <div class="buttons">
+            <a class="button" href="./Teacher%20Elvis%20-%20Professional%20Resume.pdf" download>⬇ Download Resume</a>
+            <a class="button ghost" href="#projects">View Projects</a>
+            <a class="button secondary" href="#contact">Contact Me</a>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:center;">
+          <div class="profile"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="container">
+      <h2 class="section-title">About</h2>
+      <p class="section-subtitle">A quick introduction to who I am and what I do.</p>
+      <div class="about">
+        <article>
+          <p>I’m an Administrator and Educator at <strong>Mountsview Technical College</strong> in Nairobi, Kenya. My passion lies in blending strong leadership, curriculum design, and modern IT solutions to create impactful learning experiences. I believe education should not only transfer knowledge but also build discipline, confidence, and resilience in students.</p>
+          <p>With experience in teaching, school administration, and digital systems, I enjoy turning challenges into structured solutions that improve both learning and management processes.</p>
+        </article>
+        <aside>
+          <ul>
+            <li><strong>Location:</strong> Nairobi, Kenya</li>
+            <li><strong>Email:</strong> <a href="mailto:elvisiprono098@gmai.com">elvisiprono098@gmai.com</a></li>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/254715365500?text=Hi%20Elvis,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect.">+254 715 365500</a></li>
+            <li><strong>Availability:</strong> Open to opportunities</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="container">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">Core strengths that I bring to every role.</p>
+      <div class="skills-grid">
+        <div class="skill"><span>Communication</span><span>★★★★★</span></div>
+        <div class="skill"><span>Curriculum Design</span><span>★★★★☆</span></div>
+        <div class="skill"><span>IT Support</span><span>★★★★☆</span></div>
+        <div class="skill"><span>Web Development</span><span>★★★★☆</span></div>
+        <div class="skill"><span>Team Leadership</span><span>★★★★★</span></div>
+        <div class="skill"><span>Google Workspace</span><span>★★★★☆</span></div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="container">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">Some of the work I’ve done at Mountsview and beyond.</p>
+      <div class="projects-grid">
+        <article class="project">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>Mountsview College Website</h3>
+            <p>Designed and built a modern, mobile-first college website with responsive pages for academics, admissions, and contact.</p>
+          </div>
+        </article>
+        <article class="project">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>Student Fee Dashboard</h3>
+            <p>Created a system that integrates mobile money payments with student records for accurate and automatic fee tracking.</p>
+          </div>
+        </article>
+        <article class="project">
+          <div class="thumb"></div>
+          <div class="body">
+            <h3>Curriculum & Training Programs</h3>
+            <p>Developed structured training materials and classroom strategies for Nursing and Technical students, promoting both skill and discipline.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">Let’s connect and build something meaningful.</p>
+      <div class="contact-card">
+        <a class="button" href="https://wa.me/254715365500?text=Hi%20Elvis,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." target="_blank">💬 WhatsApp Me</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Elvis Kiprono · Mountsview Technical College
+  </footer>
+
+  <script>
+    // Dark/light toggle
+    const themeBtn = document.getElementById('themeBtn');
+    (function initTheme(){
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') document.documentElement.classList.add('dark');
+    })();
+    themeBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
