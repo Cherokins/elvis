@@ -4,117 +4,108 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Elvis Kiprono · Administrator & Educator</title>
-  <meta name="description" content="Administrator & Educator at Mountsview Technical College. Passionate about training, leadership, and technology-driven education." />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Administrator & Educator. Passionate about training, leadership, and technology-driven education." />
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     body{
       font-family:"Inter",system-ui,sans-serif;
-      color:var(--text); line-height:1.6;
-      scroll-behavior:smooth;
-      background:var(--bg);
-      position:relative; z-index:0;
-      transition:background .4s,color .4s;
+      color:var(--text); line-height:1.6; scroll-behavior:smooth;
+      background:var(--bg); transition:background .4s,color .4s;
+      position:relative; overflow-x:hidden;
     }
-
-    /* Background gradient animation */
-    body::before{
-      content:""; position:fixed; inset:0; z-index:-1;
-      background:linear-gradient(-45deg,#2563eb,#22c55e,#9333ea,#f59e0b);
-      background-size:400% 400%;
-      animation:gradient 18s ease infinite;
-      opacity:.18;
-    }
-    @keyframes gradient{
-      0%{background-position:0% 50%;}
-      50%{background-position:100% 50%;}
-      100%{background-position:0% 50%;}
-    }
-
     :root{
-      --bg:#f6f8fb;
-      --panel:#ffffff;
-      --text:#0f172a;
-      --muted:#475569;
-      --accent:#2563eb;
-      --accent-2:#22c55e;
-      --border:#e5e7eb;
-      --card:#ffffff;
+      --bg:#f6f8fb; --panel:#ffffff; --text:#0f172a; --muted:#475569;
+      --accent:#2563eb; --accent-2:#22c55e; --border:#e5e7eb; --card:#ffffff;
       --shadow:0 6px 16px rgba(0,0,0,.08);
     }
     html.dark{
-      --bg:#0b1220;
-      --panel:#0f172a;
-      --text:#e5e7eb;
-      --muted:#94a3b8;
-      --card:#111827;
-      --border:#1f2937;
-      --shadow:0 8px 20px rgba(0,0,0,.4);
+      --bg:#0b1220; --panel:#0f172a; --text:#e5e7eb; --muted:#94a3b8;
+      --card:#111827; --border:#1f2937; --shadow:0 8px 20px rgba(0,0,0,.4);
     }
-
     a{color:inherit;text-decoration:none;}
     .container{max-width:1100px;margin:auto;padding:0 20px;}
 
     /* Navbar */
-    header{position:sticky;top:0;z-index:50;
-      backdrop-filter:blur(10px);
-      background:rgba(255,255,255,0.8);
-      border-bottom:1px solid var(--border);
-      transition:background .4s;}
-    html.dark header{background:rgba(15,23,42,0.9);}
+    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+      background:rgba(255,255,255,.8);border-bottom:1px solid var(--border);}
+    html.dark header{background:rgba(15,23,42,.9);}
     nav{display:flex;justify-content:space-between;align-items:center;height:64px;}
-    nav .brand{font-weight:700;font-size:1.1rem;color:var(--accent);}
+    nav .brand{font-weight:700;font-size:1.2rem;color:var(--accent);}
     nav .links{display:flex;gap:1rem;}
     nav .links a{color:var(--muted);padding:.4rem .6rem;border-radius:6px;transition:.2s;}
     nav .links a:hover{background:var(--accent);color:#fff;}
 
     /* Hero */
-    .hero{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:2rem;padding:2rem 0;}
+    .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+      align-items:center;gap:2rem;padding:2rem 0;position:relative;}
     @media(max-width:900px){.hero{grid-template-columns:1fr;text-align:center;}}
-    .hero h1{font-size:clamp(2rem,3vw,3rem);margin-bottom:1rem;}
-    .hero p{color:var(--muted);margin-bottom:1.5rem;font-size:1.1rem;}
-    .hero img{width:280px;max-width:80%;border-radius:20px;border:3px solid var(--border);box-shadow:var(--shadow);animation:float 4s ease-in-out infinite;}
-    @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+    .hero h1{font-size:clamp(2.2rem,4vw,3.5rem);margin-bottom:1rem;}
+    .hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .hero p{color:var(--muted);margin-bottom:1.5rem;font-size:1.15rem;}
+    .hero img{width:280px;max-width:80%;border-radius:50%;border:4px solid var(--accent);
+      box-shadow:0 0 25px rgba(37,99,235,.4);animation:float 4s ease-in-out infinite;}
+    @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
 
     /* Buttons */
     .button{display:inline-flex;align-items:center;gap:.5rem;
-      padding:.75rem 1.2rem;border-radius:999px;
-      background:var(--accent);color:#fff;border:none;
-      box-shadow:var(--shadow);font-weight:600;cursor:pointer;
-      transition:transform .2s,background .3s;}
+      padding:.75rem 1.2rem;border-radius:999px;background:var(--accent);
+      color:#fff;border:none;box-shadow:var(--shadow);font-weight:600;cursor:pointer;
+      transition:transform .2s,background .3s;position:relative;overflow:hidden;}
     .button:hover{transform:translateY(-2px);background:#1e4ed8;}
     .button.secondary{background:var(--panel);color:var(--accent);border:1px solid var(--accent);}
     .button.secondary:hover{background:var(--accent);color:#fff;}
 
+    /* Ripple effect */
+    .button::after{content:"";position:absolute;border-radius:50%;
+      width:10px;height:10px;background:rgba(255,255,255,.5);
+      transform:scale(0);opacity:0;pointer-events:none;animation:none;}
+    .button:active::after{animation:ripple .6s linear;}
+    @keyframes ripple{0%{transform:scale(0);opacity:1;}100%{transform:scale(12);opacity:0;}}
+
     /* Sections */
     section{padding:4rem 0;}
-    h2.section-title{text-align:center;font-size:1.8rem;margin-bottom:.5rem;}
+    h2.section-title{text-align:center;font-size:1.9rem;margin-bottom:.5rem;}
     p.section-subtitle{text-align:center;color:var(--muted);margin-bottom:2rem;}
 
     /* About */
     .about{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;}
     @media(max-width:900px){.about{grid-template-columns:1fr;}}
-    .about img{width:100%;border-radius:16px;box-shadow:var(--shadow);opacity:0;transform:translateY(30px);transition:all .8s;}
-    .about.visible img{opacity:1;transform:translateY(0);}
+    .about img{width:100%;border-radius:16px;box-shadow:var(--shadow);}
+    .glass{background:rgba(255,255,255,.6);backdrop-filter:blur(12px);
+      border:1px solid var(--border);padding:1.5rem;border-radius:16px;}
+    html.dark .glass{background:rgba(17,24,39,.6);}
 
     /* Skills */
-    .skills-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
-    .skill{background:var(--card);padding:1rem;border-radius:12px;box-shadow:var(--shadow);transition:.3s;}
-    .skill:hover{transform:translateY(-6px);box-shadow:0 8px 24px rgba(0,0,0,.15);}
+    .skill{margin-bottom:1.2rem;}
+    .skill-title{display:flex;justify-content:space-between;margin-bottom:.3rem;}
+    .bar{background:var(--border);border-radius:8px;overflow:hidden;height:10px;}
+    .bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      width:0;transition:width 1.2s ease;}
 
     /* Projects */
-    .projects-grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
-    .project{background:var(--card);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;transform:translateY(30px);opacity:0;transition:all .8s;}
-    .project.visible{opacity:1;transform:translateY(0);}
+    .projects-grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .project{background:var(--card);border-radius:14px;box-shadow:var(--shadow);
+      overflow:hidden;cursor:pointer;transition:transform .3s;}
+    .project:hover{transform:translateY(-6px);}
     .project .thumb{height:160px;background:linear-gradient(135deg,var(--accent),var(--accent-2));}
     .project .body{padding:1rem;}
+    .project h3{margin-bottom:.5rem;}
 
     /* Contact */
-    .contact-card{text-align:center;padding:2rem;background:var(--card);border-radius:16px;box-shadow:var(--shadow);}
+    .contact-card{max-width:500px;margin:auto;text-align:center;padding:2rem;
+      background:rgba(255,255,255,.6);backdrop-filter:blur(12px);
+      border-radius:16px;box-shadow:var(--shadow);}
+    html.dark .contact-card{background:rgba(17,24,39,.6);}
 
     /* Floating WhatsApp */
-    .whatsapp-float{position:fixed;bottom:20px;right:20px;z-index:1000;background:#25D366;color:#fff;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.2);transition:.3s;}
-    .whatsapp-float:hover{transform:scale(1.1);}
+    .whatsapp-float{position:fixed;bottom:20px;right:20px;z-index:1000;
+      background:#25D366;color:#fff;border-radius:50%;width:60px;height:60px;
+      display:flex;align-items:center;justify-content:center;font-size:28px;
+      box-shadow:0 4px 12px rgba(0,0,0,.2);animation:pulse 2s infinite;}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7);}
+      70%{box-shadow:0 0 0 18px rgba(37,211,102,0);}
+      100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
 
     footer{padding:2rem;text-align:center;color:var(--muted);border-top:1px solid var(--border);}
 
@@ -143,10 +134,10 @@
   <!-- Hero -->
   <section class="hero container">
     <div>
-      <h1>Hi, I’m <span style="color:var(--accent)">Elvis Kiprono</span></h1>
-      <p class="typewriter">Driving education, technology & discipline at Mountsview Technical College.</p>
+      <h1>Hi, I’m <span>Elvis Kiprono</span></h1>
+      <p class="typewriter">Driving education, technology & discipline with impact.</p>
       <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem;">
-        <a class="button" href="./Teacher%20Elvis%20-%20Professional%20Resume.pdf" download>⬇ Resume</a>
+        <a class="button" href="./resume.pdf" download>⬇ Resume</a>
         <a class="button secondary" href="#projects">View Projects</a>
       </div>
     </div>
@@ -158,11 +149,11 @@
   <!-- About -->
   <section id="about" class="container reveal">
     <h2 class="section-title">About</h2>
-    <p class="section-subtitle">A quick introduction</p>
+    <p class="section-subtitle">Who I am & what I do</p>
     <div class="about">
-      <div>
-        <p>I’m an Administrator and Educator at <strong>Mountsview Technical College</strong> in Nairobi, Kenya. My passion lies in blending strong leadership, curriculum design, and modern IT solutions to create impactful learning experiences.</p>
-        <p>With experience in teaching, school administration, and digital systems, I enjoy turning challenges into structured solutions that improve both learning and management processes.</p>
+      <div class="glass">
+        <p>I’m an Administrator and Educator based in Nairobi, Kenya. My passion lies in blending leadership, curriculum design, and IT solutions to create meaningful learning experiences.</p>
+        <p>I enjoy turning challenges into structured solutions that improve both teaching and management processes, empowering learners with discipline and confidence.</p>
       </div>
       <img src="casual.jpg" alt="Elvis Kiprono Casual Photo">
     </div>
@@ -172,42 +163,41 @@
   <section id="skills" class="container reveal">
     <h2 class="section-title">Skills</h2>
     <p class="section-subtitle">Core strengths</p>
-    <div class="skills-grid">
-      <div class="skill">Communication ⭐⭐⭐⭐⭐</div>
-      <div class="skill">Curriculum Design ⭐⭐⭐⭐☆</div>
-      <div class="skill">IT Support ⭐⭐⭐⭐☆</div>
-      <div class="skill">Web Development ⭐⭐⭐⭐☆</div>
-      <div class="skill">Team Leadership ⭐⭐⭐⭐⭐</div>
-      <div class="skill">Google Workspace ⭐⭐⭐⭐☆</div>
+    <div>
+      <div class="skill">
+        <div class="skill-title"><span>Communication</span><span>95%</span></div>
+        <div class="bar"><div class="bar-fill" style="width:95%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-title"><span>Curriculum Design</span><span>90%</span></div>
+        <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-title"><span>IT Support</span><span>85%</span></div>
+        <div class="bar"><div class="bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-title"><span>Web Development</span><span>80%</span></div>
+        <div class="bar"><div class="bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-title"><span>Leadership</span><span>95%</span></div>
+        <div class="bar"><div class="bar-fill" style="width:95%"></div></div>
+      </div>
     </div>
   </section>
 
   <!-- Projects -->
   <section id="projects" class="container">
     <h2 class="section-title">Projects</h2>
-    <p class="section-subtitle">Some of my work</p>
+    <p class="section-subtitle">Some highlights & placeholders</p>
     <div class="projects-grid">
-      <div class="project reveal">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Mountsview College Website</h3>
-          <p>Modern, mobile-first college website with pages for academics, admissions, and contact.</p>
-        </div>
-      </div>
-      <div class="project reveal">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Student Fee Dashboard</h3>
-          <p>Integrated mobile money payments with student records for accurate and automatic tracking.</p>
-        </div>
-      </div>
-      <div class="project reveal">
-        <div class="thumb"></div>
-        <div class="body">
-          <h3>Curriculum & Training</h3>
-          <p>Developed structured training materials and strategies for Nursing and Technical students.</p>
-        </div>
-      </div>
+      <div class="project reveal"><div class="thumb"></div><div class="body"><h3>College Website</h3><p>Responsive, mobile-first website for academic & admission info.</p></div></div>
+      <div class="project reveal"><div class="thumb"></div><div class="body"><h3>Fee Dashboard</h3><p>Integrated mobile money with student records for accuracy.</p></div></div>
+      <div class="project reveal"><div class="thumb"></div><div class="body"><h3>Training Programs</h3><p>Structured course materials for Nursing & Technical studies.</p></div></div>
+      <!-- Beautiful placeholders -->
+      <div class="project reveal"><div class="thumb"></div><div class="body"><h3>Project Title</h3><p>Brief description of this project or initiative.</p></div></div>
+      <div class="project reveal"><div class="thumb"></div><div class="body"><h3>Project Title</h3><p>Brief description of this project or initiative.</p></div></div>
     </div>
   </section>
 
@@ -221,39 +211,41 @@
   </section>
 
   <footer>
-    © <span id="year"></span> Elvis Kiprono · Mountsview Technical College
+    © <span id="year"></span> Elvis Kiprono
   </footer>
 
   <!-- Floating WhatsApp -->
   <a href="https://wa.me/254715365500?text=Hi%20Elvis,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect."
      class="whatsapp-float" target="_blank" aria-label="WhatsApp">💬</a>
 
+  <!-- Particle Background -->
+  <canvas id="particles"></canvas>
   <script>
     // Dark mode
     const themeBtn=document.getElementById("themeBtn");
-    (function initTheme(){
-      const saved=localStorage.getItem("theme");
-      if(saved==="dark") document.documentElement.classList.add("dark");
-    })();
-    themeBtn.addEventListener("click",()=>{
-      document.documentElement.classList.toggle("dark");
-      localStorage.setItem("theme",document.documentElement.classList.contains("dark")?"dark":"light");
-    });
+    (function(){const saved=localStorage.getItem("theme");if(saved==="dark")document.documentElement.classList.add("dark");})();
+    themeBtn.addEventListener("click",()=>{document.documentElement.classList.toggle("dark");
+      localStorage.setItem("theme",document.documentElement.classList.contains("dark")?"dark":"light");});
     document.getElementById("year").textContent=new Date().getFullYear();
 
     // Typewriter
-    const txt=document.querySelector(".typewriter");
-    const str=txt.textContent; txt.textContent=""; let i=0;
-    function type(){if(i<str.length){txt.textContent+=str.charAt(i);i++;setTimeout(type,50);}}
-    type();
+    const txt=document.querySelector(".typewriter");const str=txt.textContent;txt.textContent="";let i=0;
+    (function type(){if(i<str.length){txt.textContent+=str.charAt(i);i++;setTimeout(type,50);}})();
 
     // Scroll reveal
     const reveals=document.querySelectorAll(".reveal,.project");
-    const observer=new IntersectionObserver(entries=>{
-      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target);}});
-    },{threshold:.1});
+    const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target);}});},{threshold:.1});
     reveals.forEach(r=>observer.observe(r));
+
+    // Particles
+    const canvas=document.getElementById("particles"),ctx=canvas.getContext("2d");
+    let w,h,particles=[];function resize(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}
+    window.addEventListener("resize",resize);resize();
+    for(let i=0;i<80;i++){particles.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*1.2,vy:(Math.random()-.5)*1.2,r:2+Math.random()*2});}
+    function draw(){ctx.clearRect(0,0,w,h);ctx.fillStyle="rgba(37,99,235,0.7)";particles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();});requestAnimationFrame(draw);}
+    draw();
   </script>
 </body>
 </html>
+
 
